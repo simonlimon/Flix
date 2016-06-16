@@ -8,8 +8,10 @@
 
 import UIKit
 import AFNetworking
+import Alamofire
+import AlamofireImage
 
-class MoviesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSURLSessionDelegate,NSURLSessionDataDelegate {
+class MoviesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -21,35 +23,22 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         tableView.dataSource = self
         tableView.delegate = self
 
-        let apiKey = "15fa6ce390bb4ac774199a704013a70f"
-        let url = NSURL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=\(apiKey)")
+        let url = NSURL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=15fa6ce390bb4ac774199a704013a70f")
         
-        let request = NSURLRequest(
-            URL: url!,
-            cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalCacheData,
-            timeoutInterval: 10)
+        Alamofire.request(.GET, url!).responseJSON { response in switch response.result {
+                case .Success(let JSON):
+                    print("Success with JSON: \(JSON)")
+                    let response = JSON as! NSDictionary
+            
+                    self.movies = response["results"] as? [NSDictionary]
+                    
+                    self.tableView.reloadData()
+            
+                case .Failure(let error):
+                    print("Request failed with error: \(error)")
+            }
+        }
         
-        let session = NSURLSession(
-            configuration: NSURLSessionConfiguration.defaultSessionConfiguration(),
-            delegate: nil,
-            delegateQueue: NSOperationQueue.mainQueue()
-        )
-        
-        let task: NSURLSessionDataTask = session.dataTaskWithRequest(request,
-                                                                     completionHandler: { (dataOrNil, response, error) in
-                                                                        if let data = dataOrNil {
-                                                                            if let responseDictionary = try! NSJSONSerialization.JSONObjectWithData(
-                                                                                data, options:[]) as? NSDictionary {
-                                                                                print("response: \(responseDictionary)")
-                                                                                
-                                                                                self.movies = responseDictionary["results"] as? [NSDictionary]
-                                                                                
-                                                                                self.tableView.reloadData()
-                                                                                
-                                                                            }
-                                                                        }
-        })
-        task.resume()
     }
     
 
@@ -74,15 +63,28 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         
         let imageURL = NSURL(string: baseURL + filePath)
         
-        
         cell.titleLabel.text = title
         cell.overviewLabel.text = overview
-        cell.posterView.setImageWithURL(imageURL!)
+
+        Alamofire.request(.GET, (imageURL?.absoluteString)!).progress { bytesRead, totalBytesRead, totalBytesExpectedToRead in
+            print(totalBytesRead)
+            dispatch_async(dispatch_get_main_queue()) {
+                let progress = CGFloat(totalBytesRead) / CGFloat(totalBytesExpectedToRead)
+                cell.circleProgressView.setProgress(progress, animated: true)
+                cell.posterView.image = nil
+
+            }
+            
+            }.responseImage { response in
+    
+                if let image = response.result.value {
+                    print("image downloaded: \(image)")
+                    cell.posterView.image = image.af_imageRoundedIntoCircle()
+                }
+            }
         
         return cell
     }
-
-    
 
     /*
     // MARK: - Navigation

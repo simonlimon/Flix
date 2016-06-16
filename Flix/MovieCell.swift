@@ -7,16 +7,22 @@
 //
 
 import UIKit
+import UAProgressView
 
 class MovieCell: UITableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var overviewLabel: UILabel!
     @IBOutlet weak var posterView: UIImageView!
+    @IBOutlet weak var progressView: UIProgressView!
+    
+    @IBOutlet weak var circleProgressView: UAProgressView!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        circleProgressView.fillOnTouch = false
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

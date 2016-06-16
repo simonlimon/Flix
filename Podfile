@@ -8,5 +8,9 @@ target 'Flix' do
   # Pods for Flix
   pod 'MBProgressHUD'
   pod 'AFNetworking'
+  pod 'Alamofire'
+  pod 'AlamofireImage'
+  pod 'UAProgressView'
+
 
 end
