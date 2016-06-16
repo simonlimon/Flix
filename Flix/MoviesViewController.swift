@@ -8,16 +8,11 @@
 
 import UIKit
 import AFNetworking
-import M13ProgressSuite
 
 class MoviesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSURLSessionDelegate,NSURLSessionDataDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
-    var buffer:NSMutableData = NSMutableData()
-    var session:NSURLSession?
-    var dataTask:NSURLSessionDataTask?
-    var expectedContentLength = 0
     var movies: [NSDictionary]?
     
     override func viewDidLoad() {
@@ -29,69 +24,32 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         let apiKey = "15fa6ce390bb4ac774199a704013a70f"
         let url = NSURL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=\(apiKey)")
         
-//        progress.progress = 0.0
-        let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
-        let manqueue = NSOperationQueue.mainQueue()
-        session = NSURLSession(configuration: configuration, delegate:self, delegateQueue: manqueue)
-        dataTask = session?.dataTaskWithRequest(NSURLRequest(URL: url!))
-        dataTask?.resume()
+        let request = NSURLRequest(
+            URL: url!,
+            cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalCacheData,
+            timeoutInterval: 10)
         
-//        let request = NSURLRequest(
-//            URL: url!,
-//            cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalCacheData,
-//            timeoutInterval: 10)
-//        
-//        let session = NSURLSession(
-//            configuration: NSURLSessionConfiguration.defaultSessionConfiguration(),
-//            delegate: nil,
-//            delegateQueue: NSOperationQueue.mainQueue()
-//        )
-//        
-//        let task: NSURLSessionDataTask = session.dataTaskWithRequest(request,
-//                                                                     completionHandler: { (dataOrNil, response, error) in
-//                                                                        if let data = dataOrNil {
-//                                                                            if let responseDictionary = try! NSJSONSerialization.JSONObjectWithData(
-//                                                                                data, options:[]) as? NSDictionary {
-//                                                                                print("response: \(responseDictionary)")
-//                                                                                
-//                                                                                self.movies = responseDictionary["results"] as? [NSDictionary]
-//                                                                                
-//                                                                                self.tableView.reloadData()
-//                                                                                
-//                                                                            }
-//                                                                        }
-//        })
-//        task.resume()
-    }
-    
-    
-    func URLSession(session: NSURLSession, dataTask: NSURLSessionDataTask, didReceiveResponse response: NSURLResponse, completionHandler: (NSURLSessionResponseDisposition) -> Void) {
+        let session = NSURLSession(
+            configuration: NSURLSessionConfiguration.defaultSessionConfiguration(),
+            delegate: nil,
+            delegateQueue: NSOperationQueue.mainQueue()
+        )
         
-        //here you can get full lenth of your content
-        expectedContentLength = Int(response.expectedContentLength)
-        completionHandler(NSURLSessionResponseDisposition.Allow)
-    }
-    func URLSession(session: NSURLSession, dataTask: NSURLSessionDataTask, didReceiveData data: NSData) {
-        
-        
-        buffer.appendData(data)
-        
-        let percentageDownloaded = Float(buffer.length) / Float(expectedContentLength)
-//        progress.progress =  percentageDownloaded
-    }
-    func URLSession(session: NSURLSession, task: NSURLSessionTask, didCompleteWithError error: NSError?) {
-        //use buffer here.Download is done
-//        progress.progress = 1.0   // download 100% complete
-        
-            if let responseDictionary = try! NSJSONSerialization.JSONObjectWithData(
-                buffer, options:[]) as? NSDictionary {
-                print("response: \(responseDictionary)")
-                
-                self.movies = responseDictionary["results"] as? [NSDictionary]
-                
-                self.tableView.reloadData()
-                
-            }
+        let task: NSURLSessionDataTask = session.dataTaskWithRequest(request,
+                                                                     completionHandler: { (dataOrNil, response, error) in
+                                                                        if let data = dataOrNil {
+                                                                            if let responseDictionary = try! NSJSONSerialization.JSONObjectWithData(
+                                                                                data, options:[]) as? NSDictionary {
+                                                                                print("response: \(responseDictionary)")
+                                                                                
+                                                                                self.movies = responseDictionary["results"] as? [NSDictionary]
+                                                                                
+                                                                                self.tableView.reloadData()
+                                                                                
+                                                                            }
+                                                                        }
+        })
+        task.resume()
     }
     
 
