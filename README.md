@@ -37,6 +37,7 @@ The following **additional** features are implemented:
 - [ ] Tabs for popular, now playing, top rated
 - [ ] Overview and more details in Details View
 - [ ] Mode for TV shows
+- [ ] Initially hidden search bar
 
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
