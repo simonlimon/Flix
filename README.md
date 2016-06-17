@@ -27,7 +27,17 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
-- [ ] List anything else that you can get done to improve the app functionality!
+- [x] Infinite scroll
+- [x] Progress bar for fetching data
+- [x] Circular progress bars around images in table view
+- [x] Horizontal collection view with infinite scroll
+- [ ] Borders around images have colors matching rating
+- [ ] When images are tapped, quick info is displayed
+- [ ] Size of collection view posters matching popularity
+- [ ] Tabs for popular, now playing, top rated
+- [ ] Overview and more details in Details View
+- [ ] Mode for TV shows
+
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
