@@ -31,9 +31,9 @@ The following **additional** features are implemented:
 - [x] Progress bar for fetching data
 - [x] Circular progress bars around images in table view
 - [x] Horizontal collection view with infinite scroll
-- [x] Borders around images have colors matching rating
-- [x] When images are tapped, quick info is displayed
-- [x] Alpha of collection views posters matching popularity
+- [x] Borders around images are colored according to the rating
+- [x] When images are tapped, quick info about the rating is displayed
+- [x] The transparency of the collection view posters matches the popularity of the movies
 
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
@@ -45,9 +45,9 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/EajESHN.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://i.imgur.com/e626O19.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
-If gif doesn't load, follow this link: http://i.imgur.com/EajESHN.gifv
+If gif doesn't load, follow this link: http://i.imgur.com/e626O19.gif
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
