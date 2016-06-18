@@ -91,7 +91,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
                     }
 
                     self.tableView.reloadData()
-                     self.tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0), atScrollPosition: UITableViewScrollPosition.Top, animated: false)
+                    
                     self.errorView.hidden = true
                     
                 case .Failure(let error):

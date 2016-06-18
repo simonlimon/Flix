@@ -14,6 +14,8 @@ class MovieCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var overviewLabel: UILabel!
     @IBOutlet weak var posterView: UIImageView!
+    @IBOutlet weak var backView: UIView!
+
     
     @IBOutlet weak var circleProgressView: UAProgressView!
     
@@ -23,6 +25,7 @@ class MovieCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         circleProgressView.fillOnTouch = false
+        backView.layer.cornerRadius = 10.0
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
