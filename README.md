@@ -2,7 +2,7 @@
 
 **Flix** is a movies app using the [The Movie Database API](http://docs.themoviedb.apiary.io/#).
 
-Time spent: **X** hours spent in total
+Time spent: **18** hours spent in total
 
 ## User Stories
 
@@ -31,25 +31,23 @@ The following **additional** features are implemented:
 - [x] Progress bar for fetching data
 - [x] Circular progress bars around images in table view
 - [x] Horizontal collection view with infinite scroll
-- [ ] Borders around images have colors matching rating
-- [ ] When images are tapped, quick info is displayed
-- [ ] Size of collection view posters matching popularity
-- [ ] Tabs for popular, now playing, top rated
-- [ ] Overview and more details in Details View
-- [ ] Mode for TV shows
-- [ ] Initially hidden search bar
+- [x] Borders around images have colors matching rating
+- [x] When images are tapped, quick info is displayed
+- [x] Alpha of collection views posters matching popularity
 
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-1.
-2.
+1. How to understand Objective-C code / translate it to swift. This would be useful for using external libraries
+2. More details on how to make custom graphics and animations
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://i.imgur.com/EajESHN.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+If gif doesn't load, follow this link: http://i.imgur.com/EajESHN.gifv
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
