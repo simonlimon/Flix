@@ -34,6 +34,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="668"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexBackgroundColor" red="0.2052561339" green="0.18431960859999999" blue="0.1575102297" alpha="1" colorSpace="calibratedRGB"/>
                                 <searchBar key="tableHeaderView" contentMode="redraw" id="mbC-4v-SdW">
                                     <rect key="frame" x="0.0" y="64" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -51,15 +52,20 @@
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="119.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="leH-pj-qfo">
-                                                    <rect key="frame" x="8" y="0.0" width="245" height="21"/>
+                                                <view contentMode="scaleToFill" id="i8K-gb-CaK">
+                                                    <rect key="frame" x="0.0" y="3.5" width="313" height="113.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="backgroundColor" red="0.10714194792635831" green="0.64629727159994621" blue="0.66684391361256545" alpha="1" colorSpace="calibratedRGB"/>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.20000000000000001" adjustsLetterSpacingToFitWidth="YES" id="leH-pj-qfo">
+                                                    <rect key="frame" x="8" y="19" width="104" height="86.5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="DamascusLight" family="Damascus" pointSize="19"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" id="Cio-Or-Ara" customClass="UAProgressView">
-                                                    <rect key="frame" x="254" y="2" width="113" height="113.5"/>
+                                                    <rect key="frame" x="254" y="3.5" width="113" height="113.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="fmL-j8-TYR">
@@ -70,18 +76,46 @@
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overview" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="a9C-SM-D8r">
-                                                    <rect key="frame" x="8" y="24" width="238" height="81.5"/>
+                                                    <rect key="frame" x="120" y="24" width="126" height="81.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <view contentMode="scaleToFill" id="Gf6-qx-3oY">
+                                                    <rect key="frame" x="114" y="9.5" width="1" height="100"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
+                                                <view alpha="0.0" contentMode="scaleToFill" id="awz-Jq-dew" customClass="RatingView" customModule="Flix" customModuleProvider="target">
+                                                    <rect key="frame" x="254" y="3.5" width="113" height="113.5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aHN-ax-WOv">
+                                                            <rect key="frame" x="8" y="46.5" width="97" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                </view>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="sAV-yV-gXS">
+                                                    <rect key="frame" x="254" y="3.5" width="113" height="113.5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <connections>
+                                                        <action selector="imageTapped:" destination="kIb-Kd-vu4" eventType="touchUpInside" id="1SZ-h1-JJ0"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="circleProgressView" destination="Cio-Or-Ara" id="dCu-LD-tdK"/>
                                             <outlet property="overviewLabel" destination="a9C-SM-D8r" id="Z64-gu-7YO"/>
                                             <outlet property="posterView" destination="fmL-j8-TYR" id="Yiu-d8-Qp4"/>
+                                            <outlet property="ratingLabel" destination="aHN-ax-WOv" id="N2t-PR-yGb"/>
+                                            <outlet property="ratingView" destination="awz-Jq-dew" id="wNp-75-fwh"/>
                                             <outlet property="titleLabel" destination="leH-pj-qfo" id="lHj-DD-WAM"/>
                                             <segue destination="z0e-ZW-CqI" kind="push" id="8cU-be-Xp9"/>
                                         </connections>
@@ -92,22 +126,22 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.96078431369999995" green="0.90196078430000004" blue="0.72941176470000002" alpha="0.90051529255319152" colorSpace="calibratedRGB"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="WRF-hg-Ww0">
-                                    <size key="itemSize" width="120" height="120"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="WRF-hg-Ww0">
+                                    <size key="itemSize" width="100" height="150"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CollectionCell" id="aee-fc-Mjk" customClass="CollectionCell" customModule="Flix" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="150"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="150"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="4Ye-5Z-nsj">
-                                                    <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="4Ye-5Z-nsj">
+                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="150"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
@@ -150,12 +184,12 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </progressView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.20525613386715946" green="0.18431960860570537" blue="0.15751022965673725" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Movies" id="se4-cg-sfw">
                         <barButtonItem key="leftBarButtonItem" id="z8A-ZN-Y5a">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="KxY-fb-9it">
-                                <rect key="frame" x="16" y="9" width="25" height="25"/>
+                                <rect key="frame" x="16" y="12" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="iconmonstr-view-5-240"/>
                                 <connections>
@@ -209,6 +243,6 @@
         <image name="iconmonstr-view-5-240" width="120" height="120"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="PwU-De-CvF"/>
+        <segue reference="8cU-be-Xp9"/>
     </inferredMetricsTieBreakers>
 </document>

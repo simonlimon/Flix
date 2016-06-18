@@ -32,7 +32,8 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         
         tableView.dataSource = self
         tableView.delegate = self
-        
+        tableView.separatorColor = UIColor.clearColor()
+
         collectionView.dataSource = self
         collectionView.delegate = self
         
@@ -40,7 +41,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         filteredMovies = movies
         
         flowLayout.scrollDirection = .Horizontal
-        flowLayout.minimumLineSpacing = 5
+        flowLayout.minimumLineSpacing = 0
         flowLayout.minimumInteritemSpacing = 0
         flowLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0)
         
@@ -90,6 +91,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
                     }
 
                     self.tableView.reloadData()
+                     self.tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0), atScrollPosition: UITableViewScrollPosition.Top, animated: false)
                     self.errorView.hidden = true
                     
                 case .Failure(let error):
@@ -199,9 +201,12 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         let movie = filteredMovies![indexPath.row]
         let title = movie["title"] as! String
         let overview = movie["overview"] as! String
+        let rating = movie["vote_average"] as! Double
         
         cell.titleLabel.text = title
         cell.overviewLabel.text = overview
+        cell.setCircleColor(rating * 10)
+        cell.ratingLabel.text = String(rating)
         
         let baseURL = "http://image.tmdb.org/t/p/w500"
         if let filePath = movie["poster_path"] as? String {
@@ -227,9 +232,11 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         
         
         cell.selectionStyle = .None
+//        cell.titleLabel.sizeToFit()
 
         return cell
     }
+    
     
     // ------------------------ Collection View ------------------------
     
@@ -241,7 +248,10 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CollectionCell", forIndexPath: indexPath) as! CollectionCell
         
         let movie = filteredMovies![indexPath.row]
-        
+        let popularity = movie["popularity"] as! Float
+        let finalAlpha = CGFloat(popularity/35 * 0.7 + 0.3)
+        let imageSize: CGFloat = CGFloat(100)
+
         
         let baseURL = "http://image.tmdb.org/t/p/w500"
         if let filePath = movie["poster_path"] as? String {
@@ -257,13 +267,15 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
                     if imageResponse != nil {
                         print("Image was NOT cached, fade in image")
                         cell.movieImage.alpha = 0.0
-                        cell.movieImage.image = image.af_imageRoundedIntoCircle()
+                        cell.movieImage.image = image.af_imageAspectScaledToFillSize((CGSizeMake(imageSize-2, imageSize*1.5)))
                         UIView.animateWithDuration(0.3, animations: { () -> Void in
-                            cell.movieImage.alpha = 1.0
+                            cell.movieImage.alpha = finalAlpha
                         })
                     } else {
                         print("Image was cached so just update the image")
-                        cell.movieImage.image = image.af_imageRoundedIntoCircle()
+                        
+                        cell.movieImage.image = image.af_imageAspectScaledToFillSize((CGSizeMake(imageSize-1, imageSize*1.5)))
+                        cell.movieImage.alpha = finalAlpha
                     }
                 },
                 failure: { (imageRequest, imageResponse, error) -> Void in
@@ -274,6 +286,8 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         } else {
             cell.movieImage.image = nil
         }
+        
+        
         
         
         return cell
@@ -369,6 +383,4 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
             vc.posterURL = filePath
         }
      }
-    
-    
 }

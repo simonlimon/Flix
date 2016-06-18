@@ -16,6 +16,7 @@
 		E779B4A71D11EF83000C37F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E779B4A51D11EF83000C37F7 /* LaunchScreen.storyboard */; };
 		E779B4AF1D11F344000C37F7 /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E779B4AE1D11F344000C37F7 /* MoviesViewController.swift */; };
 		E779B4B21D11FCBE000C37F7 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E779B4B11D11FCBE000C37F7 /* MovieCell.swift */; };
+		E7F92CFE1D147EDD0045156A /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F92CFD1D147EDD0045156A /* RatingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		E779B4A81D11EF83000C37F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E779B4AE1D11F344000C37F7 /* MoviesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviesViewController.swift; sourceTree = "<group>"; };
 		E779B4B11D11FCBE000C37F7 /* MovieCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
+		E7F92CFD1D147EDD0045156A /* RatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 			children = (
 				E779B4B11D11FCBE000C37F7 /* MovieCell.swift */,
 				E711E3BD1D134CAE00C9E6C6 /* CollectionCell.swift */,
+				E7F92CFD1D147EDD0045156A /* RatingView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 				E779B49D1D11EF83000C37F7 /* AppDelegate.swift in Sources */,
 				E779B4AF1D11F344000C37F7 /* MoviesViewController.swift in Sources */,
 				E779B4B21D11FCBE000C37F7 /* MovieCell.swift in Sources */,
+				E7F92CFE1D147EDD0045156A /* RatingView.swift in Sources */,
 				E711E3BE1D134CAE00C9E6C6 /* CollectionCell.swift in Sources */,
 				E711E3C01D13CB3500C9E6C6 /* DetailsViewController.swift in Sources */,
 			);
